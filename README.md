@@ -1,7 +1,7 @@
 # SsmConfig
 
-Any config YAML in the config directory can be accessed by calling SsmConfig.config_name.
-For example, if you wish to access config/foo.yml, just call SsmConfig.foo from anywhere in the app. The YAML will be parsed
+Any config YAML in the config directory can be accessed by calling `SsmConfig.config_name`.
+For example, if you wish to access `config/foo.yml`, just call `SsmConfig.foo` from anywhere in the app. The YAML will be parsed
 into a hash.
 
 ## Installation
