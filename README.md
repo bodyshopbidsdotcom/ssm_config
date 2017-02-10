@@ -1,8 +1,8 @@
 # SsmConfig
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ssm_config`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Any config YAML in the config directory can be accessed by calling SsmConfig.config_name.
+For example, if you wish to access config/foo.yml, just call SsmConfig.foo from anywhere in the app. The YAML will be parsed
+into a hash.
 
 ## Installation
 
@@ -22,7 +22,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Given `config/eft.yml`:
+```yml
+any:
+  days_to_enter_bank_account:
+    default: 3
+    company1: 2
+    company2: 4
+```
+
+```ruby
+SsmConfig.eft
+=> {"days_to_enter_bank_account"=>{"default"=>3, "company1"=>2, "company2"=>4}}
+```
 
 ## Development
 
