@@ -1,0 +1,8 @@
+any:
+  snapsheet:
+    transactions: 5
+    clients: 2
+  snapsheet-tx:
+    transactions: 1
+    clients: 3
+    description: "test"

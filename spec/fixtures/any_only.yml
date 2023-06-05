@@ -1,0 +1,5 @@
+any:
+  days_to_enter_bank_account:
+    default: 3
+    company1: 2
+    company2: 4
