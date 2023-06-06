@@ -1,4 +1,4 @@
-require "active_record/railtie"
+require 'active_record/railtie'
 
 module RailsApp
   class Application < Rails::Application
@@ -13,7 +13,7 @@ module RailsApp
   end
 end
 
-require "active_record/connection_adapters/sqlite3_adapter"
+require 'active_record/connection_adapters/sqlite3_adapter'
 if ActiveRecord::ConnectionAdapters::SQLite3Adapter.respond_to?(:represent_boolean_as_integer)
   ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer = true
 end

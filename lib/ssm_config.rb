@@ -1,15 +1,14 @@
 class SsmConfig
-  VERSION = "0.1.1"
-  CONFIG_PATH = ('config').freeze
-  
-  class << self
+  VERSION = '0.1.1'
+  CONFIG_PATH = 'config'.freeze
 
+  class << self
     def method_missing(meth, *args, &block)
       config_file = Rails.root.join(CONFIG_PATH, "#{meth}.yml")
 
-      if File.exists?(config_file)
+      if File.exist?(config_file)
         write_config_accessor_for(meth)
-        self.send(meth)
+        send(meth)
       else
         super
       end
@@ -33,6 +32,5 @@ class SsmConfig
         end
       }
     end
-
   end
 end
