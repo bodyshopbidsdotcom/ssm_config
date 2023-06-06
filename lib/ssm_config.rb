@@ -1,5 +1,5 @@
 class SsmConfig
-  VERSION = '0.1.1'
+  VERSION = '0.1.1'.freeze
   CONFIG_PATH = 'config'.freeze
 
   class << self
@@ -14,6 +14,11 @@ class SsmConfig
       end
     end
 
+    def respond_to_missing?(meth, *_args)
+      config_file = Rails.root.join(CONFIG_PATH, "#{meth}.yml")
+      File.exist?(config_file)
+    end
+
     private
 
     def parse_config_file(filename)
@@ -26,11 +31,11 @@ class SsmConfig
     end
 
     def write_config_accessor_for(meth)
-      self.instance_eval %Q{
+      self.instance_eval %{
         def #{meth}
           @#{meth} ||= parse_config_file_with_env('#{meth}.yml')
         end
-      }
+      }, __FILE__, __LINE__ - 4
     end
   end
 end

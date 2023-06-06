@@ -5,7 +5,13 @@ gemspec
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'rubocop', '~> 1.52', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '~> 0.92', :require => false
+  gem 'rubocop-rails', :require => false
+  gem 'rubocop-rspec', :require => false
+end
+
+source 'https://rubygems.pkg.github.com/bodyshopbidsdotcom' do
+  group :development do
+    gem 'snap-style'
+  end
 end

@@ -2,7 +2,7 @@ require 'active_record/railtie'
 
 module RailsApp
   class Application < Rails::Application
-    config.root = File.expand_path("../../", __FILE__)
+    config.root = File.expand_path('../../', __FILE__)
     config.i18n.enforce_available_locales = true
 
     # if !Rails.version.start_with?("5.0") && !Rails.version.start_with?("5.1") && config.active_record.respond_to?(:yaml_column_permitted_classes=)
