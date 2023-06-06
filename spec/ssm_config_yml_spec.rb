@@ -43,12 +43,6 @@ RSpec.describe SsmConfig do
     end
   end
 
-  context 'when no YAML is specified' do
-    it 'returns SsmConfig' do
-      expect(described_class).to eq(described_class)
-    end
-  end
-
   context "when YAML file doesn't exist" do
     it 'raises NoMethodError' do
       expect { described_class.nonexisting }.to raise_error(NoMethodError).with_message("undefined method `nonexisting' for SsmConfig:Class")
