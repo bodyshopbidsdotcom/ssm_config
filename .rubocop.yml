@@ -1,0 +1,13 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+inherit_gem:
+  snap-style:
+    - "rubocop/rubocop.yml"
+
+Security/YAMLLoad:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 100

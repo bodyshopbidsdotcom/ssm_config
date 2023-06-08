@@ -1,0 +1,6 @@
+any:
+  snapsheet:
+    count: 5
+    clients: 2
+  snapsheet-tx:
+    url: "test"
