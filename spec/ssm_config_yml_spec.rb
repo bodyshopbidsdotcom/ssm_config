@@ -7,6 +7,12 @@ RSpec.describe SsmConfig do
     stub_const('SsmConfig::CONFIG_PATH', '../fixtures')
   end
 
+  context 'when no ActiveRecord table exists' do
+    it 'returns false' do
+      expect(ActiveRecord::Base.connection.table_exists?('ssm_config_records')).to eq(false)
+    end
+  end
+
   context 'when YAML file exists and is blank' do
     let(:no_method_error_message) { "undefined method `[]' for false:FalseClass" }
 

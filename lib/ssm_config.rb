@@ -7,7 +7,6 @@ class SsmConfig
       config_file = Rails.root.join(CONFIG_PATH, "#{meth}.yml")
       # specify certain model name?
       if ActiveRecord::Base.connection.table_exists? 'ssm_config_records'
-        puts("hello")
 
         match_file = SsmConfigDummy.where(:file => meth.to_s)
         match_key = match_file.where('accessor_keys LIKE :prefix', :prefix => "#{args}%")
@@ -17,16 +16,22 @@ class SsmConfig
         match_key.each do |row|
           hashes[row.accessor_keys] = row.value
         end
-        puts(hashes)
 
         hashes = hashes.sort.to_h
 
         reconstructed = clean_hash(reconstruct_hash(hashes))
-        return access_with_hashkey(reconstructed, args)
+        res = access_with_hashkey(reconstructed, args)
+
+        unless res.nil?
+          return res
+        end
       end
       if File.exist?(config_file)
-        write_config_accessor_for(meth, args)
-        send(meth)
+        # write_config_accessor_for(meth)
+        # send(meth)
+        parse_config_file_with_env("#{meth}.yml", args.to_s)
+      else
+        super
       end
     end
 
@@ -56,14 +61,13 @@ class SsmConfig
         if delimited[-1][0] == '['
           delimited[-1] = "#{delimited[-1]}flag"
         end
-        if (curr_hash.has_key?(delimited[-1]))
+        if curr_hash.key?(delimited[-1])
           curr_hash[delimited[-1]].to_a
           curr_hash[delimited[-1]].append(value)
         else
           curr_hash[delimited[-1]] = value
         end
       end
-      puts(final_hash)
       return final_hash
     end
 
@@ -73,7 +77,7 @@ class SsmConfig
       case hash
       when Hash
         keys = hash.keys
-        if (keys.size == 0)
+        if keys.size.zero?
           return hash
         end
         if (keys[0][0] == '[') && (keys[0][-4..-1] == 'flag')
@@ -93,6 +97,9 @@ class SsmConfig
     def recurse_with_hashkey(hash, key)
       # function to traverse hash according to key
       # key should be an array of keys
+      if hash.nil?
+        return nil
+      end
       if key.length.zero?
         return hash
       else
@@ -112,18 +119,17 @@ class SsmConfig
       recurse_with_hashkey(hash, delimited)
     end
 
-    # def parse_config_file(filename)
-    #   YAML.load(ERB.new(File.read("#{Rails.root}/#{CONFIG_PATH}/#{filename}")).result).symbolize_keys
-    # end
+    def parse_config_file(filename)
+      YAML.load(ERB.new(File.read("#{Rails.root}/#{CONFIG_PATH}/#{filename}")).result).symbolize_keys
+    end
 
     def parse_config_file_with_env(filename, args)
       yaml_loaded = YAML.load(ERB.new(File.read("#{Rails.root}/#{CONFIG_PATH}/#{filename}")).result)
       loaded_hash = (yaml_loaded[Rails.env] || yaml_loaded['any']).try(:with_indifferent_access)
-
       access_with_hashkey(loaded_hash, args) || loaded_hash
     end
 
-    def write_config_accessor_for(meth, args)
+    def write_config_accessor_for(meth, *args)
       self.instance_eval %{
         def #{meth}
           @#{meth} ||= parse_config_file_with_env('#{meth}.yml', '#{args}')
