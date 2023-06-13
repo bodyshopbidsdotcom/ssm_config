@@ -20,7 +20,7 @@ RSpec.describe SsmConfig do
 
   context 'when table exists' do
     it 'returns true' do
-      expect(described_class.test).to eq(true)
+      expect(described_class.test).to eq({})
     end
   end
 end
