@@ -8,7 +8,7 @@ class SsmConfig
       config_file = Rails.root.join(CONFIG_PATH, "#{meth}.yml")
 
       if ActiveRecord::Base.connection.table_exists? TABLE_NAME
-        if ACTIVE_RECORD_MODEL.constantize.exists?(:file => meth.to_s)
+        if defined? ACTIVE_RECORD_MODEL.constantize and ACTIVE_RECORD_MODEL.constantize.exists?(:file => meth.to_s)
           return {}
         else
           super
