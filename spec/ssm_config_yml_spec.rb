@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe SsmConfig do
   before do
-    stub_const('SsmConfig::CONFIG_PATH', '../fixtures')
+    stub_const('SsmStorageFile::CONFIG_PATH', '../fixtures')
   end
 
   context 'when no ActiveRecord table exists' do
@@ -15,6 +14,7 @@ RSpec.describe SsmConfig do
 
   context 'when YAML file exists and is blank' do
     let(:no_method_error_message) { "undefined method `[]' for false:FalseClass" }
+    let(:no_method_error_for_array_message) { "undefined method `[]' for nil:NilClass" }
 
     context 'with 0 depth' do
       it 'raises NoMethodError' do
@@ -24,7 +24,7 @@ RSpec.describe SsmConfig do
 
     context 'with nontrivial depth' do
       it 'raises NoMethodError' do
-        expect { described_class.blank[:key][0] }.to raise_error(NoMethodError).with_message(no_method_error_message)
+        expect { described_class.blank[:key][0] }.to raise_error(NoMethodError).with_message(no_method_error_for_array_message)
       end
     end
   end
