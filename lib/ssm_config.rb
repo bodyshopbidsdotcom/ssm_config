@@ -1,12 +1,19 @@
 class SsmConfig
   VERSION = '0.1.1'.freeze
   CONFIG_PATH = 'config'.freeze
-
+  TABLE_NAME = 'ssm_config_records'.freeze
+  ACTIVE_RECORD_MODEL = 'SsmConfigRecord'.freeze
   class << self
     def method_missing(meth, *args, &block)
       config_file = Rails.root.join(CONFIG_PATH, "#{meth}.yml")
 
-      if File.exist?(config_file)
+      if ActiveRecord::Base.connection.table_exists? TABLE_NAME
+        if defined? ACTIVE_RECORD_MODEL.constantize and ACTIVE_RECORD_MODEL.constantize.exists?(:file => meth.to_s)
+          return {}
+        else
+          super
+        end
+      elsif File.exist?(config_file)
         write_config_accessor_for(meth)
         send(meth)
       else
