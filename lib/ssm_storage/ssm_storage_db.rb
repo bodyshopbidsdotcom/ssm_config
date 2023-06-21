@@ -7,7 +7,7 @@ class SsmStorageDb
 
   def file_exists?
     active_record_exists = ActiveRecord::Base.connection.table_exists? TABLE_NAME
-    if active_record_exists
+    if active_record_exists and (defined? (ACTIVE_RECORD_MODEL.constantize) == 'constant')
       ACTIVE_RECORD_MODEL.constantize.exists?(:file => @file_name.to_s)
     else
       false

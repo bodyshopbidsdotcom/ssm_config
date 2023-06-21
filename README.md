@@ -1,9 +1,10 @@
 # SsmConfig
 
-Any config YAML in the config directory can be accessed by calling `SsmConfig.config_name`.
-For example, if you wish to access `config/foo.yml`, just call `SsmConfig.foo` from anywhere in the app. The YAML will be parsed
+Any file in an ActiveRecord with model name `SsmConfigRecord` can be accessed by calling `SsmConfig.file_name`. 
+For example, if you wish to access `foo`, just call `SsmConfig.foo` from anywhere in the app. All values with the corresponding file name will be parsed
 into a hash.
 
+If the file does not exist in `SsmConfigRecord`, any YAML file in the config directory with the same file name will be parsed into a hash.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,22 +21,58 @@ Or install it yourself as:
 
     $ gem install ssm_config
 
+## Setup
+
+To utilize ActiveRecords, create the following model:
+```
+rails generate model SsmConfigRecord file:string accessor_keys:string value:string
+```
+
+When migrating a file to the ActiveRecord, it is important to correctly input the accessor keys. The field `accessor_keys` represents a hashkey corresponding to a value in the hash: for the sequence of keys used to access a value, the corresponding accessor key will be the keys concatentated with a comma delimiter. For example, if `hash[:key1][:key2][:key3] = value`, the corresponding accessor key would be the string `"key1,key2,key3"`. In the case that there is an array, we include the index embraced by brackets. Consider the following hash:
+
+```yml
+any:
+  build:
+    docker:
+      - image: value1
+    steps:
+      - value2
+      - run: value3
+```
+The accessor keys for `value1`, `value2`, and `value3` would be `"build,docker,[0],image"`, `"build,steps,[0]"`, and `"build,steps,[1],run"`, respectively.
+
+**NOTE:** There should be no file name called `cache`, as this will call a method of the `SsmConfig` class. Also, all values read from the table will be strings.
 ## Usage
 
-Given `config/eft.yml`:
+
+Given the following rows in `SsmConfigRecord`:
+
+| file | accessor_keys | value |
+| :---: | :------------: | :---: |
+| eft | days_to_enter_bank_account,default | 3 |
+| eft | days_to_enter_bank_account,company1,[0] | 2 |
+| eft | days_to_enter_bank_account,company2 | 4|
+
+```ruby
+SsmConfig.eft
+=> {"days_to_enter_bank_account"=>{"default"=>3, "company1"=>[2], "company2"=>4}}
+```
+`SsmConfig` will always reconstruct the hash using all the rows with the corresponding file name. In the case that no such row exists, `SsmConfig` will look for `config/foo.yml`. For example, given `config/eft.yml`,
+
 ```yml
 any:
   days_to_enter_bank_account:
     default: 3
-    company1: 2
+    company1:
+      - 2
     company2: 4
 ```
-
 ```ruby
 SsmConfig.eft
-=> {"days_to_enter_bank_account"=>{"default"=>3, "company1"=>2, "company2"=>4}}
+=> {"days_to_enter_bank_account"=>{"default"=>3, "company1"=>[2], "company2"=>4}}
 ```
 
+This search will be exclusive: i.e., if any row exists in the table then the gem will not look in `config`.
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

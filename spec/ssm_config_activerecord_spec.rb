@@ -30,6 +30,15 @@ RSpec.describe SsmConfig do
     end
   end
 
+  context 'when table name doesn\'t exist' do
+    it 'reads from config' do
+      stub_const('SsmStorageDb::ACTIVE_RECORD_MODEL', 'SsmConfigWrong')
+      expect(SsmConfig.data2).to eq({"snapsheet"=>{"clients"=>2, "count"=>5}, "snapsheet-tx"=>{"url"=>"test"}})
+      described_class.instance_eval('undef :data2', __FILE__, __LINE__)
+      described_class.instance_variable_set(:@data2, nil)
+    end
+  end
+
   context 'when testing queries' do
     context 'when file exists' do
       it 'returns correct value' do
