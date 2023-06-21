@@ -1,10 +1,13 @@
 # SsmConfig
 
-Any file in an ActiveRecord with model name `SsmConfigRecord` can be accessed by calling `SsmConfig.file_name`. 
-For example, if you wish to access `foo`, just call `SsmConfig.foo` from anywhere in the app. All values with the corresponding file name will be parsed
-into a hash.
+* ActiveRecord
+  - Any file in ActiveRecord with model name `SsmConfigRecord` can be accessed by calling `SsmConfig.file_name`
+  - All rows with the corresponding file name will be parsed into a hash
+* `config` directory 
+  - If file is not found in `SsmConfigRecord` (or the ActiveRecord doesn't exist), `SsmConfig` looks in the `config` directory
+  - Any YAML file in the directory with the corresponding file name will be parsed into a hash
 
-If the file does not exist in `SsmConfigRecord`, any YAML file in the config directory with the same file name will be parsed into a hash.
+These two are exclusive, with the former prioritized: i.e., the gem will look in the ActiveRecord model first, and then in the `config` directory if no such file is found.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -41,7 +44,7 @@ any:
 ```
 The accessor keys for `value1`, `value2`, and `value3` would be `"build,docker,[0],image"`, `"build,steps,[0]"`, and `"build,steps,[1],run"`, respectively.
 
-**NOTE:** There should be no file name called `cache`, as this will call a method of the `SsmConfig` class. Also, all values read from the table will be strings.
+⚠️ **NOTE:** ⚠️ There should be no file name called `cache`, as this will call a method of the `SsmConfig` class. Also, all values read from the table will be strings.
 ## Usage
 
 
