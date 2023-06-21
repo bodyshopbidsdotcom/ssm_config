@@ -18,6 +18,7 @@ RSpec.describe SsmConfig do
   end
 
   let(:migrations_path) { SPEC_ROOT.join('support/active_record/postgres') }
+  let(:error_message) { "undefined method `non_existent' for SsmConfig:Class" }
 
   after do
     run_migrations(:down, migrations_path)
