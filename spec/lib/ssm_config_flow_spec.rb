@@ -8,8 +8,8 @@ end
 
 RSpec.describe SsmConfig do
   before do
-    stub_const('SsmStorageFile::CONFIG_PATH', '../fixtures')
-    stub_const('SsmStorageDb::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
+    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
+    stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
     run_migrations(:up, migrations_path, 1)
     SsmConfigDummy.new(:file => 'data', :accessor_keys => 'test,[0]', :value => 'hello').save
   end
@@ -21,8 +21,17 @@ RSpec.describe SsmConfig do
     run_migrations(:down, migrations_path)
   end
 
+  context 'when table name doesn\'t exist' do
+    it 'reads from config' do
+      stub_const('SsmStorageDb::ACTIVE_RECORD_MODEL', 'SsmConfigWrong')
+      expect(described_class.data2).to eq({ 'snapsheet' => { 'clients' => 2, 'count' => 5 }, 'snapsheet-tx' => { 'url' => 'test' } })
+      described_class.instance_eval('undef :data2', __FILE__, __LINE__)
+      described_class.instance_variable_set(:@data2, nil)
+    end
+  end
+
   context 'when file doesn\'t exist in ActiveRecord' do
-    it 'returns from YAML' do
+    it 'returns from config' do
       expect(described_class.data2).to eq({ 'snapsheet' => { 'clients' => 2, 'count' => 5 }, 'snapsheet-tx' => { 'url' => 'test' } })
     end
   end

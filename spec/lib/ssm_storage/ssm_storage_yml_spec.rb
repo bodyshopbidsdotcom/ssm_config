@@ -3,13 +3,7 @@
 require 'rails_helper'
 RSpec.describe SsmConfig do
   before do
-    stub_const('SsmStorageFile::CONFIG_PATH', '../fixtures')
-  end
-
-  context 'when no ActiveRecord table exists' do
-    it 'returns false' do
-      expect(ActiveRecord::Base.connection.table_exists?('ssm_config_records')).to eq(false)
-    end
+    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
   end
 
   context 'when YAML file exists and is blank' do

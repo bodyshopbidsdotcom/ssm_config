@@ -8,8 +8,8 @@ end
 
 RSpec.describe SsmConfig do
   before do
-    stub_const('SsmStorageFile::CONFIG_PATH', '../fixtures')
-    stub_const('SsmStorageDb::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
+    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
+    stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
     run_migrations(:up, migrations_path, 1)
     SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'test,[0]', :value => 'hullo').save
     SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'other_key', :value => 'ciao').save
@@ -20,29 +20,28 @@ RSpec.describe SsmConfig do
 
   after do
     run_migrations(:down, migrations_path)
-    puts('hullo')
   end
 
   context 'when testing hashes are properly cached' do
     context 'when querying a hash before refresh' do
-      it 'returns same' do
+      it 'returns same hash' do
         expect(described_class.file_name).to eq({ 'test' => ['hullo'], 'other_key' => 'ciao' })
       end
     end
 
     context 'when querying a hash a refresh with no update' do
-      it 'returns same' do
+      it 'returns same hash' do
         Timecop.travel(Time.zone.now + 31.minutes)
         expect(described_class.file_name).to eq({ 'test' => ['hullo'], 'other_key' => 'ciao' })
       end
     end
+  end
 
-    context 'when cache is same' do
-      it 'returns both' do
-        SsmConfigDummy.new(:file => 'second', :accessor_keys => '1', :value => '1').save
-        described_class.second
-        expect(described_class.cache.length).to be >= 2
-      end
+  context 'when testing cache is stored for multiple files' do
+    it 'returns at least 2 files' do
+      SsmConfigDummy.new(:file => 'second', :accessor_keys => '1', :value => '1').save
+      described_class.second
+      expect(described_class.last_processed_time.length).to be >= 2
     end
   end
 
@@ -52,13 +51,13 @@ RSpec.describe SsmConfig do
     end
 
     context 'when querying a hash before refresh' do
-      it 'returns same' do
+      it 'returns same hash' do
         expect(described_class.file_name).to eq({ 'test' => ['hullo'], 'other_key' => 'ciao' })
       end
     end
 
     context 'when querying a hash after refresh' do
-      it 'returns updated value' do
+      it 'returns updated hash' do
         Timecop.travel(Time.zone.now + 30.minutes)
         expect(described_class.file_name).to eq({ 'test' => ['hullo2'], 'other_key' => 'ciao' })
       end
