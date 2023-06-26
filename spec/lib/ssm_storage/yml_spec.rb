@@ -1,0 +1,111 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+RSpec.describe 'SsmStorage::Yml' do
+  before do
+    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
+  end
+
+  describe '#file_exists?' do
+    context 'when YAML file exists' do
+      it 'file_exists? returns true' do
+        query = SsmStorage::Yml.new('data')
+        expect(query.file_exists?).to eq(true)
+      end
+    end
+
+    context "when YAML file doesn't exist" do
+      it 'raises NoMethodError' do
+        expect { SsmConfig.nonexisting }.to raise_error(NoMethodError).with_message("undefined method `nonexisting' for SsmConfig:Class")
+      end
+    end
+
+    context 'when both any and Rails.env are in the file' do
+      it 'returns Rails.env' do
+        expect(SsmConfig.any_and_test).to eq({ 'days_to_enter_bank_account' => { 'default' => 2 } })
+      end
+    end
+
+    context 'when only Rails.env and not any is in the file' do
+      it 'returns Rails.env' do
+        expect(SsmConfig.test_only).to eq({ 'days_to_enter_bank_account' => { 'default' => 2 } })
+      end
+    end
+
+    context 'when only any and not Rails.env is in the file' do
+      it 'returns any' do
+        expect(SsmConfig.any_only).to eq({ 'days_to_enter_bank_account' => { 'default' => 3, 'company1' => 2 } })
+      end
+    end
+
+    context 'when neither any nor Rails.env are in the file' do
+      it 'returns nil' do
+        expect(SsmConfig.neither_any_nor_test).to eq(nil)
+      end
+    end
+
+    context 'when selecting any' do
+      it 'returns nil' do
+        expect(SsmConfig.data[:any]).to eq(nil)
+      end
+    end
+
+    context 'when selecting Rails.env' do
+      it 'returns nil' do
+        expect(SsmConfig.test_only[:test]).to eq(nil)
+      end
+    end
+
+    context 'when selecting a different environment in the yml file' do
+      it 'returns nil' do
+        expect(SsmConfig.data[:workflows]).to eq(nil)
+      end
+    end
+  end
+
+  describe '#hash' do
+    context 'when YAML file exists and is blank' do
+      let(:no_method_error_message) { "undefined method `[]' for false:FalseClass" }
+      let(:no_method_error_for_array_message) { "undefined method `[]' for nil:NilClass" }
+
+      context 'when hash called on SsmStorage::Yml' do
+        it 'returns no method error' do
+          query = SsmStorage::Yml.new('blank')
+          expect { query.hash }.to raise_error(NoMethodError).with_message(no_method_error_message)
+        end
+      end
+
+      context 'with 0 depth' do
+        it 'raises NoMethodError' do
+          expect { SsmConfig.blank }.to raise_error(NoMethodError).with_message(no_method_error_message)
+        end
+      end
+
+      context 'with nontrivial depth' do
+        it 'raises NoMethodError' do
+          expect { SsmConfig.blank[:key][0] }.to raise_error(NoMethodError).with_message(no_method_error_for_array_message)
+        end
+      end
+    end
+
+    context 'when YAML file exists and is not blank' do
+      context 'with 0 depth' do
+        it 'returns correctly' do
+          expect(SsmConfig.data2).to eq({ 'snapsheet' => { 'clients' => 2, 'count' => 5 }, 'snapsheet-tx' => { 'url' => 'test' } })
+        end
+      end
+
+      context 'with nontrivial depth and structure' do
+        it 'returns correctly' do
+          expect(SsmConfig.data[:build][:docker][0]['image']).to eq('cimg/base:2023.03')
+        end
+      end
+
+      context 'with a bad key' do
+        it 'returns nil' do
+          expect(SsmConfig.data[:bad_key]).to eq(nil)
+        end
+      end
+    end
+  end
+end

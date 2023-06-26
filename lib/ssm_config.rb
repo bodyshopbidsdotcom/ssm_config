@@ -1,6 +1,6 @@
-require './lib/ssm_storage/ssm_storage_db.rb'
-require './lib/ssm_storage/ssm_storage_yml.rb'
-require './lib/ssm_storage/ssm_storage_empty.rb'
+require './lib/ssm_storage/db.rb'
+require './lib/ssm_storage/yml.rb'
+require './lib/ssm_storage/empty.rb'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/time'
 
@@ -16,8 +16,7 @@ class SsmConfig
     end
 
     def respond_to_missing?(meth, *_args)
-      config_file = Rails.root.join(SsmStorage::Yml::CONFIG_PATH, "#{meth}.yml")
-      (ActiveRecord::Base.connection.table_exists? SsmStorage::Db::TABLE_NAME) || File.exist?(config_file)
+      determine_query(meth).present?
     end
 
     def last_processed_time

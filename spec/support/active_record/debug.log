@@ -1,0 +1,817 @@
+# Logfile created on 2023-06-26 13:09:23 -0400 by logger.rb/66358
+D, [2023-06-26T13:09:23.376700 #96526] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2023-06-26T13:09:23.377312 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:41:in `block in <top (required)>'
+D, [2023-06-26T13:09:23.378359 #96526] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:23.378704 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:41:in `block in <top (required)>'
+D, [2023-06-26T13:09:23.427358 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+D, [2023-06-26T13:09:23.427715 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:40:in `<top (required)>'
+D, [2023-06-26T13:09:23.462560 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:23.463180 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:40:in `<top (required)>'
+D, [2023-06-26T13:09:23.473336 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:23.474347 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:40:in `<top (required)>'
+D, [2023-06-26T13:09:23.474865 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-06-26 17:09:23.472608"], ["updated_at", "2023-06-26 17:09:23.472608"]]
+D, [2023-06-26T13:09:23.475585 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:40:in `<top (required)>'
+D, [2023-06-26T13:09:23.475943 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:23.476440 #96526] DEBUG -- :   ↳ /Users/lchoi/Desktop/ssm_config/spec/support/active_record/schema.rb:40:in `<top (required)>'
+D, [2023-06-26T13:09:25.498644 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2023-06-26T13:09:25.498936 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.500599 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2023-06-26T13:09:25.500869 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.501715 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+D, [2023-06-26T13:09:25.501942 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.504111 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.504413 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.504563 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.509158 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.509549 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.510016 #96526] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.510394 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.513441 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.513761 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.514060 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.514312 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.515478 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.515726 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.516903 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.517261 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.517763 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-06-26 17:09:25.516298"], ["updated_at", "2023-06-26 17:09:25.516298"]]
+D, [2023-06-26T13:09:25.518093 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.518475 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.518735 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.526910 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.527309 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.527675 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.527950 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.528266 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.528521 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.529361 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.529638 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.529990 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530251 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530527 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530773 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data2"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "nonexistent"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "file_name"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "file_name"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:09:25.530898 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:09:25.530898 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.532324 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "file_name"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.532700 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.534124 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "file_name"]]
+D, [2023-06-26T13:40:25.534482 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.536409 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.536906 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.537152 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.537743 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.538264 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.538731 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:40:25.539103 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.540070 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.540416 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.540708 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.541035 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.544361 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.544756 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.544949 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.545819 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.546209 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.546616 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:40:25.547025 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.548289 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.548698 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.549059 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.549400 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.550731 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.551107 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.553352 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.553808 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.554288 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:40:25.554654 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.555104 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.555480 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.556503 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.556881 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.557299 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:40:25.557678 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558088 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558423 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "second"], ["accessor_keys", "1"], ["value", "1"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "second"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "second"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.558596 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.558596 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."accessor_keys" = ? LIMIT ?[0m  [["accessor_keys", "test,[0]"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Update (0.1ms)[0m  [1m[33mUPDATE "ssm_config_records" SET "value" = ? WHERE "ssm_config_records"."id" = ?[0m  [["value", "hullo2"], ["id", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.558596 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T13:40:25.558596 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."accessor_keys" = ? LIMIT ?[0m  [["accessor_keys", "test,[0]"], ["LIMIT", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Update (0.1ms)[0m  [1m[33mUPDATE "ssm_config_records" SET "value" = ? WHERE "ssm_config_records"."id" = ?[0m  [["value", "hullo2"], ["id", 1]]
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T13:40:25.558596 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.560362 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "file_name"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.560761 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.562351 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "file_name"]]
+D, [2023-06-26T14:10:25.563060 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.565751 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.566167 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.566408 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.566950 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.567359 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.567802 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.568183 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.569285 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.569722 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.570071 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.570455 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.574572 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.575017 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.575236 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.576418 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.576852 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.577303 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.577693 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.578935 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.579349 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.580015 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.580890 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.582191 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.582586 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.584548 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.584975 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.585476 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T14:10:25.585903 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.586327 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.586672 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.587772 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.588165 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.588657 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T14:10:25.589073 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.589495 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.589860 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "blank"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "test,[0]"], ["value", "hullo"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "file_name"], ["accessor_keys", "other_key"], ["value", "ciao"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "non_existent"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "non_existent"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data1"], ["accessor_keys", "other"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data1"], ["accessor_keys", "other2"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data1"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[1]"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.2ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? AND "ssm_config_records"."accessor_keys" = ? LIMIT ?[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Update (0.2ms)[0m  [1m[33mUPDATE "ssm_config_records" SET "value" = ? WHERE "ssm_config_records"."id" = ?[0m  [["value", "goodbye"], ["id", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ssm_config_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "file" varchar, "accessor_keys" varchar, "value" varchar)[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "test,[0]"], ["value", "hello"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Create (0.1ms)[0m  [1m[32mINSERT INTO "ssm_config_records" ("file", "accessor_keys", "value") VALUES (?, ?, ?)[0m  [["file", "data"], ["accessor_keys", "other_key"], ["value", "goodbye"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.2ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? AND "ssm_config_records"."value" = ? LIMIT ?[0m  [["file", "data"], ["value", "hello"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Update (0.2ms)[0m  [1m[33mUPDATE "ssm_config_records" SET "accessor_keys" = ? WHERE "ssm_config_records"."id" = ?[0m  [["accessor_keys", "new_key"], ["id", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ? LIMIT ?[0m  [["file", "data"], ["LIMIT", 1]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mSsmConfigDummy Load (0.1ms)[0m  [1m[34mSELECT "ssm_config_records".* FROM "ssm_config_records" WHERE "ssm_config_records"."file" = ?[0m  [["file", "data"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+I, [2023-06-26T14:10:25.590054 #96526]  INFO -- : Migrating to CreateRecords (1)
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ssm_config_records"[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "1"]]
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2023-06-26T14:10:25.590054 #96526] DEBUG -- :   ↳ activerecord (6.1.4.7) lib/active_record/log_subscriber.rb:119:in `debug'

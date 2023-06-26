@@ -28,7 +28,7 @@ Or install it yourself as:
 
 To utilize ActiveRecords, create the following model:
 ```
-rails generate model SsmConfigRecord file:string accessor_keys:string value:string
+rails generate model SsmConfigRecord file:string:index accessor_keys:string value:string
 ```
 
 When migrating a file to the ActiveRecord, it is important to correctly input the accessor keys. The field `accessor_keys` represents a hashkey corresponding to a value in the hash: for the sequence of keys used to access a value, the corresponding accessor key will be the keys concatentated with a comma delimiter. For example, if `hash[:key1][:key2][:key3] = value`, the corresponding accessor key would be the string `"key1,key2,key3"`. In the case that there is an array, we include the index embraced by brackets. Consider the following hash:

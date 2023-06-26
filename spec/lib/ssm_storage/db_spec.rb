@@ -5,7 +5,7 @@ class SsmConfigDummy < ::ActiveRecord::Base
   self.table_name = 'ssm_config_records'
 end
 
-RSpec.describe SsmConfig do
+RSpec.describe 'SsmStorage::Db' do
   let(:migrations_path) { SPEC_ROOT.join('support/active_record/postgres') }
   let(:error_message) { "undefined method `non_existent' for SsmConfig:Class" }
 
@@ -19,29 +19,39 @@ RSpec.describe SsmConfig do
 
   after do
     run_migrations(:down, migrations_path)
-    described_class.instance_variable_set(:@data, nil)
+    SsmConfig.instance_variable_set(:@data, nil)
   end
 
-  context 'when testing queries' do
-    context 'when file exists' do
-      it 'returns file as hash' do
-        expect(described_class.data).to eq({ 'test' => ['hello'], 'other_key' => 'goodbye' })
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+  describe '#file_exists?' do
+    let(:db_query) { SsmStorage::Db.new('data') }
+
+    context 'when file doesn\'t exist' do
+      it 'file_exists? returns false' do
+        query = SsmStorage::Db.new('non_existent')
+        expect(query.file_exists?).to eq(false)
       end
     end
 
+    context 'when ActiveRecordModel doesn\'t exist' do
+      it 'file_exists? returns false' do
+        stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigWrong')
+        expect(db_query.file_exists?).to eq(false)
+      end
+    end
+  end
+
+  describe '#hash' do
     context 'when querying a file with keys' do
       it 'returns subhash properly' do
-        SsmConfigDummy.create(:file => 'data', :accessor_keys => 'test,[1]', :value => 'hello2')
-        expect(described_class.data[:other_key]).to eq('goodbye')
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+        expect(SsmConfig.data[:other_key]).to eq('goodbye')
+        SsmConfig.instance_eval('undef :data', __FILE__, __LINE__)
       end
     end
 
     context 'when querying a file with array index' do
       it 'returns subhash properly' do
-        expect(described_class.data[:test][0]).to eq('hello')
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+        expect(SsmConfig.data[:test][0]).to eq('hello')
+        SsmConfig.instance_eval('undef :data', __FILE__, __LINE__)
       end
     end
 
@@ -49,15 +59,15 @@ RSpec.describe SsmConfig do
       it 'returns entire file as hash' do
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other', :value => 'goodbye')
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other2', :value => 'hello')
-        expect(described_class.data1).to eq({ 'other' => 'goodbye', 'other2' => 'hello' })
+        expect(SsmConfig.data1).to eq({ 'other' => 'goodbye', 'other2' => 'hello' })
       end
     end
 
     context 'when key gives multiple values' do
       it 'returns array properly formatted' do
         SsmConfigDummy.create(:file => 'data', :accessor_keys => 'test,[1]', :value => 'goodbye')
-        expect(described_class.data[:test]).to eq(['hello', 'goodbye'])
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+        expect(SsmConfig.data[:test]).to eq(['hello', 'goodbye'])
+        SsmConfig.instance_eval('undef :data', __FILE__, __LINE__)
       end
     end
   end
@@ -66,16 +76,16 @@ RSpec.describe SsmConfig do
     context 'when value is changed' do
       it 'returns new hash' do
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => 'goodbye')
-        expect(described_class.data).to eq({ 'other_key' => 'goodbye', 'test' => ['goodbye'] })
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+        expect(SsmConfig.data).to eq({ 'other_key' => 'goodbye', 'test' => ['goodbye'] })
+        SsmConfig.instance_eval('undef :data', __FILE__, __LINE__)
       end
     end
 
     context 'when key is changed' do
       it 'returns new hash' do
         SsmConfigDummy.find_by(:file => 'data', :value => 'hello').update(:accessor_keys => 'new_key')
-        expect(described_class.data).to eq({ 'new_key' => 'hello', 'other_key' => 'goodbye' })
-        described_class.instance_eval('undef :data', __FILE__, __LINE__)
+        expect(SsmConfig.data).to eq({ 'new_key' => 'hello', 'other_key' => 'goodbye' })
+        SsmConfig.instance_eval('undef :data', __FILE__, __LINE__)
       end
     end
   end
