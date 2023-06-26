@@ -28,7 +28,7 @@ class SsmConfig
     def determine_query(meth)
       query_database = SsmStorage::Db.new(meth)
       query_yml = SsmStorage::Yml.new(meth)
-      return query_database if query_database.file_exists?
+      return query_database if query_database.table_exists?
       return query_yml if query_yml.file_exists?
       nil
     end
@@ -36,14 +36,11 @@ class SsmConfig
     def populate(meth)
       query = determine_query(meth)
 
-      if query.present?
-        self.last_processed_time[meth] = Time.zone.now
-        write_config_accessor_for(meth) unless method_defined?(meth.to_sym)
-        instance_variable_set("@#{meth}".to_sym, nil)
-        self.send(meth, query)
-      else
-        false
-      end
+      return false if query.blank?
+      self.last_processed_time[meth] = Time.zone.now
+      write_config_accessor_for(meth) unless method_defined?(meth.to_sym)
+      instance_variable_set("@#{meth}".to_sym, nil)
+      self.send(meth, query)
     end
 
     def write_config_accessor_for(meth)

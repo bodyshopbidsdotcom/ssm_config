@@ -6,49 +6,45 @@ module SsmStorage
       @file_name = file_name
     end
 
-    def file_exists?
-      active_record_exists = ActiveRecord::Base.connection.table_exists? TABLE_NAME
-      if active_record_exists && (Object.const_defined? ACTIVE_RECORD_MODEL)
-        ACTIVE_RECORD_MODEL.constantize.exists?(:file => @file_name.to_s)
-      else
-        false
-      end
+    def table_exists?
+      return active_record_model_exists? if active_record_exists? && constant_exists?
+      false
     end
 
     def hash
       match_file = ACTIVE_RECORD_MODEL.constantize.where(:file => @file_name.to_s)
-      hashes = {}
-      match_file.each do |row|
-        hashes[row.accessor_keys] = row.value
-      end
-      hashes = hashes.sort.to_h
+      hashes = match_file.each_with_object({}) { |row, hash| hash[row.accessor_keys] = row.value; }.sort
       insert_arrays(reconstruct_hash(hashes)).try(:with_indifferent_access)
     end
 
     private
 
+    def active_record_exists?
+      ActiveRecord::Base.connection.table_exists? TABLE_NAME
+    end
+
+    def active_record_model_exists?
+      ACTIVE_RECORD_MODEL.constantize.exists?(:file => @file_name.to_s)
+    end
+
+    def constant_exists?
+      Object.const_defined? ACTIVE_RECORD_MODEL
+    end
+
     # given a hash from hashkey (sequence of keys delimited by comma) to value, reconstruct hash
     # arrays will not be formed properly, see insert_arrays
     def reconstruct_hash(hash)
-      final_hash = {} # initialize hash
-      hash.each do |key, value| # key will represent sequence of keys needed to get down to value
+      hash.each_with_object({}) do |(key, value), final_hash| # key will represent sequence of keys needed to get down to value
         curr_hash = final_hash
-        delimited = key.split(',') # hashkeys are the keys separated by commas, so delimit them
-        delimited[0..-2].each do |element| # go until -2, then handle -1 separately since this is when we insert the value
-          if element[0] == '[' # if bracket, indicates array index
-            element = "#{element}flag" # add a flag indicating this is for an array index, and not some key name that had a bracket in it
-          end
-          unless curr_hash.key?(element)
-            curr_hash[element] = {} # if key doesn't exist, initialize it
-          end
+        delimited = key.split(',')
+        delimited[0..-2].each do |element|
+          element = "#{element}flag" if element[0] == '[' # if bracket, indicates array index, add a flag indicating this is for an array index, and not some key name that had a bracket in it
+          curr_hash[element] = {} unless curr_hash.key?(element) # if key doesn't exist, initialize it
           curr_hash = curr_hash[element] # move into next level of hash
         end
-        if delimited[-1][0] == '['
-          delimited[-1] = "#{delimited[-1]}flag"
-        end
+        delimited[-1] = "#{delimited[-1]}flag" if delimited[-1][0] == '['
         curr_hash[delimited[-1]] = value # insert value
       end
-      return final_hash
     end
 
     # reconstruct_hash is unable to create arrays where needed, so parse through
@@ -56,11 +52,8 @@ module SsmStorage
     def insert_arrays(hash)
       case hash
       when Hash
-        keys = hash.keys
-        if keys.size.zero? # if there are no keys, return
-          return hash
-        end
-        if (keys[0][0] == '[') && (keys[0][-4..-1] == 'flag') # if key has bracket + flag, it is an array index
+        return hash if hash.keys.size.zero? # if there are no keys, return
+        if (hash.keys[0][0] == '[') && (hash.keys[0][-4..-1] == 'flag') # if key has bracket + flag, it is an array index
           hash = hash.values # convert hash to just the array of values
           hash.each_with_index do |element, index|
             hash[index] = insert_arrays(element) # recurse on each value
