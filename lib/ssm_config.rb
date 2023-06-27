@@ -46,7 +46,7 @@ class SsmConfig
     def write_config_accessor_for(meth)
       self.instance_eval %{
       def #{meth}(obj = SsmStorage::Empty.new)
-        return self.send(:populate, "#{meth}") if self.last_processed_time["#{meth}".to_sym] < Time.now - REFRESH_TIME
+        return self.send(:populate, "#{meth}") if self.last_processed_time["#{meth}".to_sym] < Time.zone.now - REFRESH_TIME
         @#{meth} ||= obj&.hash
       end
     }, __FILE__, __LINE__ - 5
