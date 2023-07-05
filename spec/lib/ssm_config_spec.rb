@@ -12,8 +12,8 @@ RSpec.describe SsmConfig do
     stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
     stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
     run_migrations(:up, migrations_path, 1)
-    SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'test,[0]', :value => 'hullo').save
-    SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'other_key', :value => 'ciao').save
+    SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'test,[0]', :value => 'hullo', :datatype => 'string').save
+    SsmConfigDummy.new(:file => 'file_name', :accessor_keys => 'other_key', :value => 'ciao', :datatype => 'string').save
     Timecop.freeze(Time.zone.now)
   end
 
@@ -67,7 +67,7 @@ RSpec.describe SsmConfig do
 
     context 'when testing cache is stored for multiple files' do
       it 'returns at least 2 files' do
-        SsmConfigDummy.new(:file => 'second', :accessor_keys => '1', :value => '1').save
+        SsmConfigDummy.create(:file => 'second', :accessor_keys => '1', :value => '1', :datatype => 'string')
         described_class.second
         expect(described_class.last_processed_time.length).to be >= 2
       end

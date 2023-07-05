@@ -13,7 +13,7 @@ module SsmStorage
 
     def hash
       match_file = ACTIVE_RECORD_MODEL.constantize.where(:file => @file_name.to_s).order(:accessor_keys)
-      hashes = match_file.each_with_object({}) { |row, hash| hash[row.accessor_keys] = row.value; }
+      hashes = match_file.each_with_object({}) { |row, hash| hash[row.accessor_keys] = transform_class(row.value, row.datatype); }
       insert_arrays(reconstruct_hash(hashes)).try(:with_indifferent_access)
     end
 
@@ -29,6 +29,23 @@ module SsmStorage
 
     def constant_exists?
       Object.const_defined? ACTIVE_RECORD_MODEL
+    end
+
+    def convert_boolean(value)
+      value = value.downcase unless value.nil?
+      return true if value == 'true'
+      return false if value == 'false'
+      raise 'Not a valid boolean: must be one of true or false'
+    end
+
+    def transform_class(value, type)
+      type = type.downcase unless type.nil?
+      possible_types = ['string', 'integer', 'boolean', 'float']
+      if possible_types.include? type
+        return value.send("to_#{type[0]}") unless type == 'boolean'
+        convert_boolean(value)
+      else raise 'Not a valid class: must be one of string, integer, boolean, or float'
+      end
     end
 
     def add_flag_for_array_index(key)

@@ -42,5 +42,7 @@ ActiveRecord::Schema.define do
     t.column :file, :string
     t.column :accessor_keys, :string
     t.column :value, :string
+    t.column :datatype, :string
   end
+  add_index :ssm_config_records, :file
 end
