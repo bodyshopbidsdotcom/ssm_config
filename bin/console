@@ -11,4 +11,5 @@ require 'ssm_config'
 # Pry.start
 
 require 'irb'
+require 'byebug'
 IRB.start(__FILE__)

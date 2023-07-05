@@ -8,6 +8,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.92', :require => false
   gem 'rubocop-rails', :require => false
   gem 'rubocop-rspec', :require => false
+  gem 'timecop'
 end
 
 source 'https://rubygems.pkg.github.com/bodyshopbidsdotcom' do
