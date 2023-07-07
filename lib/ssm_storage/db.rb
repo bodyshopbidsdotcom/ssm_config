@@ -32,20 +32,17 @@ module SsmStorage
     end
 
     def convert_boolean(value)
-      value = value.downcase unless value.nil?
-      return true if value == 'true'
-      return false if value == 'false'
+      value = value.to_s.downcase
+      return true if value[0] == 't'
+      return false if value[0] == 'f'
       raise 'Not a valid boolean: must be one of true or false'
     end
 
     def transform_class(value, type)
-      type = type.downcase unless type.nil?
-      possible_types = ['string', 'integer', 'boolean', 'float']
-      if possible_types.include? type
-        return value.send("to_#{type[0]}") unless type == 'boolean'
-        convert_boolean(value)
-      else raise 'Not a valid class: must be one of string, integer, boolean, or float'
-      end
+      possible_types = ['s', 'i', 'b', 'f']
+      raise 'Not a valid class: must be one of string, integer, boolean, or float' unless possible_types.include? type.to_s.downcase[0]
+      return value.send("to_#{type.to_s.downcase[0]}") unless type[0] == 'b'
+      convert_boolean(value)
     end
 
     def add_flag_for_array_index(key)

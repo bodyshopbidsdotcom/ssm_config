@@ -106,7 +106,7 @@ RSpec.describe 'SsmStorage::Db' do
 
     context 'when datatype is invalid' do
       it 'raises error' do
-        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'invalid type')
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'char_invalid')
         expect { db_query.hash[:test][0] }.to raise_error(RuntimeError).with_message(invalid_datatype_message)
       end
     end
