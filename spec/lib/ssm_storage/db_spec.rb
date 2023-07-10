@@ -10,11 +10,11 @@ RSpec.describe 'SsmStorage::Db' do
   let(:error_message) { "undefined method `non_existent' for SsmConfig:Class" }
   let(:invalid_datatype_message) { 'Not a valid class: must be one of string, integer, boolean, or float' }
   let(:invalid_boolean_message) { 'Not a valid boolean: must be one of true or false' }
-  let(:db_query) { SsmStorage::Db.new('data') }
+  let(:db_query) { SsmTest::SsmStorage::Db.new('data') }
 
   before do
-    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
-    stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
+    stub_const('SsmTest::SsmStorage::Yml::CONFIG_PATH', '../fixtures')
+    stub_const('SsmTest::SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigDummy')
     run_migrations(:up, migrations_path, 1)
     SsmConfigDummy.create(:file => 'data', :accessor_keys => 'test,[0]', :value => 'hello', :datatype => 'string')
     SsmConfigDummy.create(:file => 'data', :accessor_keys => 'other_key', :value => 'goodbye', :datatype => 'string')
@@ -27,14 +27,14 @@ RSpec.describe 'SsmStorage::Db' do
   describe '#table_exists?' do
     context 'when file doesn\'t exist' do
       it 'table_exists? returns false' do
-        query = SsmStorage::Db.new('non_existent')
+        query = SsmTest::SsmStorage::Db.new('non_existent')
         expect(query.table_exists?).to eq(false)
       end
     end
 
     context 'when ActiveRecordModel doesn\'t exist' do
       it 'table_exists? returns false' do
-        stub_const('SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigWrong')
+        stub_const('SsmTest::SsmStorage::Db::ACTIVE_RECORD_MODEL', 'SsmConfigWrong')
         expect(db_query.table_exists?).to eq(false)
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe 'SsmStorage::Db' do
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other', :value => 'goodbye', :datatype => 'string')
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other2,[0]', :value => 'hello', :datatype => 'string')
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other2,[1]', :value => 'hello2', :datatype => 'string')
-        db_query2 = SsmStorage::Db.new('data1')
+        db_query2 = SsmTest::SsmStorage::Db.new('data1')
         expect(db_query2.hash).to eq({ 'other' => 'goodbye', 'other2' => ['hello', 'hello2'] })
       end
     end
@@ -92,7 +92,7 @@ RSpec.describe 'SsmStorage::Db' do
       it 'raises error' do
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => 'invalid boolean')
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'boolean')
-        expect { db_query.hash[:test][0] }.to raise_error(RuntimeError).with_message(invalid_boolean_message)
+        expect { db_query.hash[:test][0] }.to raise_error(SsmTest::InvalidBoolean).with_message(invalid_boolean_message)
       end
     end
 
@@ -107,7 +107,7 @@ RSpec.describe 'SsmStorage::Db' do
     context 'when datatype is invalid' do
       it 'raises error' do
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'char_invalid')
-        expect { db_query.hash[:test][0] }.to raise_error(RuntimeError).with_message(invalid_datatype_message)
+        expect { db_query.hash[:test][0] }.to raise_error(SsmTest::UnsupportedDatatype).with_message(invalid_datatype_message)
       end
     end
   end

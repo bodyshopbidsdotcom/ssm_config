@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 RSpec.describe 'SsmStorage::Yml' do
-  let(:yml_query) { SsmStorage::Yml.new('data') }
-  let(:yml_query1) { SsmStorage::Yml.new('data1') }
-  let(:yml_query_blank) { SsmStorage::Yml.new('blank') }
+  let(:yml_query) { SsmTest::SsmStorage::Yml.new('data') }
+  let(:yml_query1) { SsmTest::SsmStorage::Yml.new('data1') }
+  let(:yml_query_blank) { SsmTest::SsmStorage::Yml.new('blank') }
 
   before do
-    stub_const('SsmStorage::Yml::CONFIG_PATH', '../fixtures')
+    stub_const('SsmTest::SsmStorage::Yml::CONFIG_PATH', '../fixtures')
   end
 
   describe '#file_exists?' do
@@ -53,28 +53,28 @@ RSpec.describe 'SsmStorage::Yml' do
 
     context 'when both any and Rails.env are in the file' do
       it 'returns Rails.env' do
-        query = SsmStorage::Yml.new('any_and_test')
+        query = SsmTest::SsmStorage::Yml.new('any_and_test')
         expect(query.hash).to eq({ 'days_to_enter_bank_account' => { 'default' => 2 } })
       end
     end
 
     context 'when only Rails.env and not any is in the file' do
       it 'returns Rails.env' do
-        query = SsmStorage::Yml.new('test_only')
+        query = SsmTest::SsmStorage::Yml.new('test_only')
         expect(query.hash).to eq({ 'days_to_enter_bank_account' => { 'default' => 2 } })
       end
     end
 
     context 'when only any and not Rails.env is in the file' do
       it 'returns any' do
-        query = SsmStorage::Yml.new('any_only')
+        query = SsmTest::SsmStorage::Yml.new('any_only')
         expect(query.hash).to eq({ 'days_to_enter_bank_account' => { 'default' => 3, 'company1' => 2 } })
       end
     end
 
     context 'when neither any nor Rails.env are in the file' do
       it 'returns nil' do
-        query = SsmStorage::Yml.new('neither_any_nor_test')
+        query = SsmTest::SsmStorage::Yml.new('neither_any_nor_test')
         expect(query.hash).to eq(nil)
       end
     end
