@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe 'SsmStorage::Yml' do
   let(:yml_query) { SsmConfig::SsmStorage::Yml.new('data') }

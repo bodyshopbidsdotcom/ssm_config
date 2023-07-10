@@ -1,21 +1,13 @@
-# frozen_string_literal: true
-
 module SsmConfig
-  # Generic PaperTrail exception.
-  # @api public
+  # Generic SsmConfig exception.
   class Error < StandardError
   end
 
-  # An unexpected option, perhaps a typo, was passed to a public API method.
-  # @api public
+  # An unexpected option, perhaps a typo, was passed to the value in the case of a boolean datatype
   class InvalidBoolean < Error
   end
 
-  # The application's database schema is not supported.
-  # @api public
+  # The datatype entered is unsupported in SsmConfigRecord
   class UnsupportedDatatype < Error
   end
-
-  # The application's database column type is not supported.
-  # @api public
 end
