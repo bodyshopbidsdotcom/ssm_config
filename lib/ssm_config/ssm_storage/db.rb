@@ -1,4 +1,4 @@
-module SsmTest
+module SsmConfig
   module SsmStorage
     class Db
       TABLE_NAME = 'ssm_config_records'.freeze
@@ -36,12 +36,12 @@ module SsmTest
         value = value.to_s.downcase
         return true if value[0] == 't'
         return false if value[0] == 'f'
-        raise SsmTest::InvalidBoolean, 'Not a valid boolean: must be one of true or false'
+        raise SsmConfig::InvalidBoolean, 'Not a valid boolean: must be one of true or false'
       end
 
       def transform_class(value, type)
         possible_types = ['s', 'i', 'b', 'f']
-        raise SsmTest::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless possible_types.include? type.to_s.downcase[0]
+        raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless possible_types.include? type.to_s.downcase[0]
         return value.send("to_#{type.to_s.downcase[0]}") unless type[0] == 'b'
         convert_boolean(value)
       end

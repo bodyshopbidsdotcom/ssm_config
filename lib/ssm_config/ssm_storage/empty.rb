@@ -1,4 +1,4 @@
-module SsmTest
+module SsmConfig
   module SsmStorage
     class Empty
       def hash

@@ -1,4 +1,4 @@
-module SsmTest
+module SsmConfig
   module SsmStorage
     class Yml
       CONFIG_PATH = 'config'.freeze

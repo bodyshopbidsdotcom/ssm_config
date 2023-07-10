@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SsmTest
+module SsmConfig
   # Generic PaperTrail exception.
   # @api public
   class Error < StandardError
