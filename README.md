@@ -28,8 +28,12 @@ Or install it yourself as:
 
 To utilize ActiveRecords, create the following model:
 ```
-rails generate model SsmConfigRecord file:string:index accessor_keys:string value:string
+rails generate model SsmConfigRecord file:string:index accessor_keys:string value:string datatype:string
 ```
+
+The supported datatypes are `[string, integer, boolean, float]`. The field `datatype` should contain the character that corresponds to the first character of the datatype (so one of `[s, i, b, f]`). This field is not case-sensitive (the gem also only checks the first character of `datatype`). Booleans should also be one of `[t, f]`, corresponding to `true` and `false`. Similarly, this is not case-sensitive and only the first character of the value (given the datatype is a boolean) will be checked.
+
+An invalid entry will throw an exception (as well as an invalid boolean entry). 
 
 When migrating a file to the ActiveRecord, it is important to correctly input the accessor keys. The field `accessor_keys` represents a hashkey corresponding to a value in the hash: for the sequence of keys used to access a value, the corresponding accessor key will be the keys concatentated with a comma delimiter. For example, if `hash[:key1][:key2][:key3] = value`, the corresponding accessor key would be the string `"key1,key2,key3"`. In the case that there is an array, we include the index embraced by brackets. Consider the following hash:
 

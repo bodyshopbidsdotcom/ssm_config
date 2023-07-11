@@ -1,11 +1,12 @@
-require './lib/ssm_storage/db.rb'
-require './lib/ssm_storage/yml.rb'
-require './lib/ssm_storage/empty.rb'
+require './lib/ssm_config/ssm_storage/db.rb'
+require './lib/ssm_config/ssm_storage/yml.rb'
+require './lib/ssm_config/ssm_storage/empty.rb'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/time'
+require './lib/ssm_config/errors.rb'
 
-class SsmConfig
-  VERSION = '1.0.0'.freeze
+module SsmConfig
+  VERSION = '1.1.0'.freeze
   REFRESH_TIME = (30.minutes).freeze
 
   class << self
@@ -26,8 +27,8 @@ class SsmConfig
     private
 
     def determine_query(meth)
-      query_database = SsmStorage::Db.new(meth)
-      query_yml = SsmStorage::Yml.new(meth)
+      query_database = SsmConfig::SsmStorage::Db.new(meth)
+      query_yml = SsmConfig::SsmStorage::Yml.new(meth)
       return query_database if query_database.table_exists?
       return query_yml if query_yml.file_exists?
       nil
@@ -45,7 +46,7 @@ class SsmConfig
 
     def write_config_accessor_for(meth)
       self.instance_eval %{
-      def #{meth}(obj = SsmStorage::Empty.new)
+      def #{meth}(obj = SsmConfig::SsmStorage::Empty.new)
         return self.send(:populate, "#{meth}") if self.last_processed_time["#{meth}".to_sym] < Time.zone.now - REFRESH_TIME
         @#{meth} ||= obj&.hash
       end
