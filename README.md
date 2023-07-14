@@ -51,7 +51,6 @@ The accessor keys for `value1`, `value2`, and `value3` would be `"build,docker,[
 ⚠️ **NOTE:** ⚠️ There should be no file name called `cache`, as this will call a method of the `SsmConfig` class. Also, all values read from the table will be strings.
 ## Usage
 
-
 Given the following rows in `SsmConfigRecord`:
 
 | file | accessor_keys | value |
@@ -78,8 +77,33 @@ any:
 SsmConfig.eft
 => {"days_to_enter_bank_account"=>{"default"=>3, "company1"=>[2], "company2"=>4}}
 ```
-
 This search will be exclusive: i.e., if any row exists in the table then the gem will not look in `config`.
+
+## Migrations
+
+To migrate a YAML file in the `config` directory into `SsmConfigRecord`, the class `SsmConfig::MigrationHelper` can be used. `MigrationHelper` takes in the file name, and has `migrate` and `unmigrate` methods.
+
+The `migrate` method will migrate the file into the table: if any validations are violated, then all rows that were added in the current call will be deleted, returning the table to the initial state.
+
+The `unmigrate` method will remove _all_ rows in the table that match the file name. A sample migration is as follows:
+
+```ruby
+class AddFileToSsmconfigrecord < ActiveRecord::Migration[5.2]
+  attr_accessor :file_name
+  def up
+    @file_name = 'file'
+    migration_helper = SsmConfig::MigrationHelper.new(file_name)
+    migration_helper.migrate
+  end
+
+  def down
+    @file_name = 'file'
+    migration_helper = SsmConfig::MigrationHelper.new(file_name)
+    migration_helper.unmigrate
+  end
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
