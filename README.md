@@ -89,7 +89,6 @@ The `down` method will remove _all_ rows in the table that match the file name. 
 
 ```ruby
 class AddFileToSsmconfigrecord < ActiveRecord::Migration[5.2]
-  attr_accessor :file_name
   def up
     SsmConfig::MigrationHelper.new('file').up
   end
