@@ -5,7 +5,7 @@ module SsmConfig
       @model_name = SsmConfig::SsmStorage::Db::ACTIVE_RECORD_MODEL
     end
 
-    def migrate
+    def up
       added = []
       keys_hash = accessor_key_hash(hash) # starting layer is always hash
       last = nil
@@ -18,7 +18,7 @@ module SsmConfig
       added.each(&:delete)
     end
 
-    def unmigrate
+    def down
       @model_name.constantize.where(:file => @file_name).destroy_all
     end
 

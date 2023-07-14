@@ -22,27 +22,37 @@ RSpec.describe 'SsmStorage::MigrationHelper' do
     run_migrations(:down, migrations_path)
   end
 
-  describe '#migrate' do
+  describe '#up' do
     context 'when file exists' do
       it 'migrates file correctly' do
-        migration_helper1.migrate
+        migration_helper1.up
         expect(db_query1.hash).to eq(yml_query1.hash)
       end
     end
 
     context 'when a more complex file exists' do
       it 'migrates file correctly' do
-        migration_helper.migrate
+        migration_helper.up
         expect(db_query.hash).to eq(yml_query.hash)
+      end
+    end
+
+    context 'when ActiveRecord::RecordInvalid is raised' do
+      it 'returns table to original state' do
+        migration_helper.up
+        allow(SsmConfigDummy).to receive(:create!).and_raise.and_return(ActiveRecord::RecordInvalid)
+        expect { migration_helper.up }
+          .to raise_error { ActiveRecord::RecordInvalid }
+          .and change { SsmConfigDummy.where(:file => 'data').size }.by(0)
       end
     end
   end
 
-  describe '#unmigrate' do
+  describe '#down' do
     context 'when file exists in table' do
       it 'removes all instances' do
-        migration_helper1.migrate
-        migration_helper1.unmigrate
+        migration_helper1.up
+        migration_helper1.down
         expect(SsmConfigDummy.where(:file => 'data1').size).to eq(0)
       end
     end
@@ -50,7 +60,7 @@ RSpec.describe 'SsmStorage::MigrationHelper' do
     context 'when instances of a file already exist' do
       it 'removes all instances' do
         SsmConfigDummy.create(:file => 'data', :accessor_keys => 'to_delete', :value => '0', :datatype => 'i')
-        migration_helper.unmigrate
+        migration_helper.down
         expect(SsmConfigDummy.where(:file => 'data').size).to eq(0)
       end
     end
