@@ -87,7 +87,19 @@ This search will be exclusive: i.e., if any row exists in the table then the gem
 
 To migrate a YAML file in the `config` directory into `SsmConfigRecord`, the class `SsmConfig::MigrationHelper` can be used. `MigrationHelper` takes in the file name, and has `up` and `down` methods.
 
-The `up` method will migrate the file into the table: if any validations are violated, then all rows that were added in the current call will be deleted, returning the table to the initial state.
+The `up` method will migrate the file into the table: if any validations are violated, then all rows that were added in the current call will be deleted, returning the table to the initial state. The following is a custom validation for datatype (which can be added in the corresponding model file):
+
+```ruby
+class SsmConfigRecord < ApplicationRecord
+  validate :datatype_support
+
+  def datatype_support
+    possible_types = ['s', 'i', 'b', 'f']
+    errors.add(:datatype, "is not a valid datatype (#{datatype})") unless possible_types.include? datatype.downcase[0]
+  end
+end
+```
+
 
 The `down` method will remove _all_ rows in the table that match the file name. A sample migration is as follows:
 
