@@ -1,12 +1,13 @@
 require './lib/ssm_config/ssm_storage/db.rb'
 require './lib/ssm_config/ssm_storage/yml.rb'
 require './lib/ssm_config/ssm_storage/empty.rb'
+require './lib/ssm_config/errors.rb'
+require './lib/ssm_config/migration_helper.rb'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/time'
-require './lib/ssm_config/errors.rb'
 
 module SsmConfig
-  VERSION = '1.1.0'.freeze
+  VERSION = '1.2.0'.freeze
   REFRESH_TIME = (30.minutes).freeze
 
   class << self
