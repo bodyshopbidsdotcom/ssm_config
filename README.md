@@ -94,8 +94,7 @@ class SsmConfigRecord < ApplicationRecord
   validate :datatype_support
 
   def datatype_support
-    possible_types = ['s', 'i', 'b', 'f']
-    errors.add(:datatype, "is not a valid datatype (#{datatype})") unless possible_types.include? datatype.downcase[0]
+    errors.add(:datatype, "is not a valid datatype (#{datatype})") unless SsmConfig::SsmStorage::Db::VALID_DATATYPES.include? datatype.downcase[0]
   end
 end
 ```
