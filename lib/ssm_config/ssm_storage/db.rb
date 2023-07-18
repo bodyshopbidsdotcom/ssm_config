@@ -3,6 +3,7 @@ module SsmConfig
     class Db
       TABLE_NAME = 'ssm_config_records'.freeze
       ACTIVE_RECORD_MODEL = 'SsmConfigRecord'.freeze
+      VALID_DATATYPES = ['s', 'i', 'b', 'f'].freeze
       def initialize(file_name)
         @file_name = file_name
       end
@@ -40,8 +41,7 @@ module SsmConfig
       end
 
       def transform_class(value, type)
-        possible_types = ['s', 'i', 'b', 'f']
-        raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless possible_types.include? type.to_s.downcase[0]
+        raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless VALID_DATATYPES.include? type.to_s.downcase[0]
         return value.send("to_#{type.to_s.downcase[0]}") unless type[0] == 'b'
         convert_boolean(value)
       end

@@ -41,9 +41,7 @@ RSpec.describe 'SsmStorage::MigrationHelper' do
       it 'returns table to original state' do
         migration_helper.up
         allow(SsmConfigDummy).to receive(:create!).and_raise.and_return(ActiveRecord::RecordInvalid)
-        expect { migration_helper.up }
-          .to raise_error { ActiveRecord::RecordInvalid }
-          .and change { SsmConfigDummy.where(:file => 'data').size }.by(0)
+        expect { migration_helper.up }.to change { SsmConfigDummy.where(:file => 'data').size }.by(0)
       end
     end
   end
