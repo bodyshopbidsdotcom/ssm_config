@@ -41,8 +41,9 @@ module SsmConfig
       end
 
       def transform_class(value, type)
-        raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless VALID_DATATYPES.include? type.to_s.downcase[0]
-        return value.send("to_#{type.to_s.downcase[0]}") unless type[0] == 'b'
+        type_char = type.to_s.downcase[0]
+        raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless VALID_DATATYPES.include? type_char
+        return value.send("to_#{type_char}") unless type_char == 'b'
         convert_boolean(value)
       end
 

@@ -81,8 +81,8 @@ RSpec.describe 'SsmStorage::Db' do
 
     context 'when datatype is boolean' do
       it 'returns boolean' do
-        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => 'true')
-        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'boolean')
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => 'True')
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'Boolean')
         expect(db_query.hash[:test][0]).to eq(true)
       end
     end
@@ -90,7 +90,7 @@ RSpec.describe 'SsmStorage::Db' do
     context 'when boolean is invalid' do
       it 'raises error' do
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => 'invalid boolean')
-        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'boolean')
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'Boolean')
         expect { db_query.hash[:test][0] }.to raise_error(SsmConfig::InvalidBoolean).with_message(invalid_boolean_message)
       end
     end
