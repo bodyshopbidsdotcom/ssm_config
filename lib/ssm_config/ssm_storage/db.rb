@@ -12,7 +12,6 @@ module SsmConfig
         return active_record_model_exists? if active_record_exists? && constant_exists?
         false
         rescue ActiveRecord::NoDatabaseError
-          puts("hello")
           return false
       end
 
