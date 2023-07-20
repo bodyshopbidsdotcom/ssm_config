@@ -24,6 +24,14 @@ RSpec.describe 'SsmStorage::Db' do
   end
 
   describe '#table_exists?' do
+    context 'when database doesn\'t exist' do
+      it 'returns false' do
+        query = SsmConfig::SsmStorage::Db.new('non_existent')
+        allow(ActiveRecord::Base.connection).to receive(:table_exists?).and_raise.and_return(ActiveRecord::NoDatabaseError)
+        expect(query.table_exists?).to eq(false)
+      end
+    end
+
     context 'when file doesn\'t exist' do
       it 'table_exists? returns false' do
         query = SsmConfig::SsmStorage::Db.new('non_existent')

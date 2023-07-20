@@ -28,7 +28,7 @@ Or install it yourself as:
 
 To utilize ActiveRecords, create the following model:
 ```
-rails generate model SsmConfigRecord file:string:index accessor_keys:string value:string datatype:string
+rails generate model SsmConfigRecord file:string:index accessor_keys:string value:text datatype:string
 ```
 
 The supported datatypes are `[string, integer, boolean, float, erb]`. The first character entered in the field `datatype` should be the character that corresponds to the first character of the datatype (so one of `[s, i, b, f, e]`). This field is not case-sensitive. The type `erb` will store the `erb` expression in the database, and evaluate it on queries. 
