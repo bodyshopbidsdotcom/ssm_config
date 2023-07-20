@@ -3,3 +3,4 @@ any:
   other2: 
     - 'hello'
     - 'hello2'
+    - "<%= ENV['VAR'] || 'val' %>"

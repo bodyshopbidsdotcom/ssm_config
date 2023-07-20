@@ -33,7 +33,7 @@ RSpec.describe 'SsmStorage::Yml' do
 
     context 'when YAML exists and is not blank' do
       it 'returns correct hash' do
-        expect(yml_query1.hash).to eq({ 'other' => 'goodbye', 'other2' => ['hello', 'hello2'] })
+        expect(yml_query1.hash).to eq({ 'other' => 'goodbye', 'other2' => ['hello', 'hello2', 'val'] })
       end
     end
 

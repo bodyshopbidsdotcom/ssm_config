@@ -103,6 +103,14 @@ RSpec.describe 'SsmStorage::Db' do
       end
     end
 
+    context 'when datatype is ERB' do
+      it 'returns evaluated expression' do
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:value => "<%= ENV['VAR'] || 'val' %>")
+        SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'erb')
+        expect(db_query.hash[:test][0]).to eq('val')
+      end
+    end
+
     context 'when datatype is invalid' do
       it 'raises error' do
         SsmConfigDummy.find_by(:file => 'data', :accessor_keys => 'test,[0]').update(:datatype => 'char_invalid')

@@ -31,7 +31,7 @@ To utilize ActiveRecords, create the following model:
 rails generate model SsmConfigRecord file:string:index accessor_keys:string value:string datatype:string
 ```
 
-The supported datatypes are `[string, integer, boolean, float]`. The first character entered in the field `datatype` should be the character that corresponds to the first character of the datatype (so one of `[s, i, b, f]`). This field is not case-sensitive. 
+The supported datatypes are `[string, integer, boolean, float, erb]`. The first character entered in the field `datatype` should be the character that corresponds to the first character of the datatype (so one of `[s, i, b, f, e]`). This field is not case-sensitive. The type `erb` will store the `erb` expression in the database, and evaluate it on queries. 
 
 Booleans should also be one of `[t, f]`, corresponding to `true` and `false`. Similarly, this is not case-sensitive and only the first character of the value entered (given the datatype is a boolean) will be checked.
 

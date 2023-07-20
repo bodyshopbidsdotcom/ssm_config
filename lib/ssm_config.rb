@@ -7,7 +7,7 @@ require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/time'
 
 module SsmConfig
-  VERSION = '1.2.2'.freeze
+  VERSION = '1.3.0'.freeze
   REFRESH_TIME = (30.minutes).freeze
 
   class << self
