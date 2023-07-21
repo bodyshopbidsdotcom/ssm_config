@@ -3,7 +3,7 @@ module SsmConfig
     class Db
       TABLE_NAME = 'ssm_config_records'.freeze
       ACTIVE_RECORD_MODEL = 'SsmConfigRecord'.freeze
-      VALID_DATATYPES = ['s', 'i', 'b', 'f'].freeze
+      VALID_DATATYPES = ['s', 'i', 'b', 'f', 'e'].freeze
       def initialize(file_name)
         @file_name = file_name
       end
@@ -42,11 +42,16 @@ module SsmConfig
         raise SsmConfig::InvalidBoolean, 'Not a valid boolean: must be one of true or false'
       end
 
+      def convert_erb(value)
+        ERB.new(value).result
+      end
+
       def transform_class(value, type)
         type_char = type.to_s.downcase[0]
         raise SsmConfig::UnsupportedDatatype, 'Not a valid class: must be one of string, integer, boolean, or float' unless VALID_DATATYPES.include? type_char
-        return value.send("to_#{type_char}") unless type_char == 'b'
-        convert_boolean(value)
+        return convert_boolean(value) if type_char == 'b'
+        return convert_erb(value) if type_char == 'e'
+        value.send("to_#{type_char}")
       end
 
       def add_flag_for_array_index(key)

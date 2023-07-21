@@ -51,11 +51,17 @@ module SsmConfig
 
     def determine_class(value)
       return 'boolean' if (value == false) || (value == true)
-      return value.class
+      return 'erb' if (value[0..2] == '<%=') && (value[-2..-1] == '%>')
+      value.class
+    end
+
+    def file_path
+      Rails.root.join(SsmConfig::SsmStorage::Yml::CONFIG_PATH, "#{@file_name}.yml")
     end
 
     def hash
-      SsmConfig::SsmStorage::Yml.new(@file_name).hash
+      yaml_loaded = YAML.load(File.read((file_path).to_s))
+      (yaml_loaded[Rails.env] || yaml_loaded['any']).try(:with_indifferent_access)
     end
   end
 end
