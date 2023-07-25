@@ -3,8 +3,9 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in ssm_config.gemspec
 gemspec
 
+gem 'mysql2'
+
 group :development, :test do
-  gem 'mysql2'
   gem 'pry-byebug'
   gem 'rubocop', '~> 0.92', :require => false
   gem 'rubocop-rails', :require => false
