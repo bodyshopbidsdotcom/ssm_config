@@ -11,7 +11,7 @@ module SsmConfig
       def table_exists?
         return active_record_model_exists? if active_record_exists? && constant_exists?
         false
-      rescue ActiveRecord::NoDatabaseError
+      rescue ActiveRecord::NoDatabaseError, Mysql2::Error::ConnectionError
         return false
       end
 

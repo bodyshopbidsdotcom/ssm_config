@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
+  gem 'mysql2'
   gem 'pry-byebug'
   gem 'rubocop', '~> 0.92', :require => false
   gem 'rubocop-rails', :require => false
