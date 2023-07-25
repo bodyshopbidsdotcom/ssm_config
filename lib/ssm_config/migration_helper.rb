@@ -49,15 +49,14 @@ module SsmConfig
       end
     end
 
-    def determine_erb(value)
-      return 'erb' if (value[0..2] == '<%=') && (value[-2..-1] == '%>')
-      return 'string'
+    def erb?(value)
+      (value[0..2] == '<%=') && (value[-2..-1] == '%>')
     end
 
     def determine_class(value)
       return 'boolean' if (value == false) || (value == true)
       return value.class unless value.is_a? String
-      return determine_erb(value)
+      erb?(value) ? 'erb' : 'string'
     end
 
     def file_path
