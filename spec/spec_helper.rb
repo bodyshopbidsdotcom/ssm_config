@@ -3,6 +3,7 @@ require 'ssm_config'
 require 'byebug'
 require 'ssm_config_spec_helpers'
 require 'support/active_record/models'
+require 'mysql2'
 
 SPEC_ROOT = Pathname.new(File.expand_path('../', __FILE__))
 

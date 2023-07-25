@@ -32,6 +32,14 @@ RSpec.describe 'SsmStorage::Db' do
       end
     end
 
+    context 'when Mysql2 doesn\'t exist' do
+      it 'returns false' do
+        query = SsmConfig::SsmStorage::Db.new('non_existent')
+        allow(ActiveRecord::Base.connection).to receive(:table_exists?).and_raise.and_return(Mysql2::Error::ConnectionError)
+        expect(query.table_exists?).to eq(false)
+      end
+    end
+
     context 'when file doesn\'t exist' do
       it 'table_exists? returns false' do
         query = SsmConfig::SsmStorage::Db.new('non_existent')
@@ -65,7 +73,6 @@ RSpec.describe 'SsmStorage::Db' do
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other', :value => 'goodbye', :datatype => 'string')
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other2,[0]', :value => 'hello', :datatype => 'string')
         SsmConfigDummy.create(:file => 'data1', :accessor_keys => 'other2,[1]', :value => 'hello2', :datatype => 'string')
-        # db_query2 = SsmConfig::SsmStorage::Db.new('data1')
         expect(db_query2.hash).to eq({ 'other' => 'goodbye', 'other2' => ['hello', 'hello2'] })
       end
     end
