@@ -9,14 +9,14 @@ module SsmConfig
       end
 
       def table_exists?
-        return active_record_model_exists? if db_active? && active_record_exists? && constant_exists?
+        return active_record_model_exists? if db_connected? && active_record_exists? && constant_exists?
         false
       rescue ActiveRecord::NoDatabaseError, Mysql2::Error::ConnectionError
         return false
       end
 
-      def db_active?
-        ActiveRecord::Base.connection.active?
+      def db_connected?
+        ActiveRecord::Base.connected?
       end
 
       def hash
