@@ -30,7 +30,7 @@ module SsmConfig
     def determine_query(meth)
       query_database = SsmConfig::SsmStorage::Db.new(meth)
       query_yml = SsmConfig::SsmStorage::Yml.new(meth)
-      return query_database if query_database.table_exists?
+      return query_database if  ActiveRecord::Base.connection.active? && query_database.table_exists?
       return query_yml if query_yml.file_exists?
       nil
     end
