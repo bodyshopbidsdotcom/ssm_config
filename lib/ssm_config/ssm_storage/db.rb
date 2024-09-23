@@ -16,7 +16,7 @@ module SsmConfig
       end
 
       def db_connected?
-        ActiveRecord::Base.connected?
+        ActiveRecord::Base.connection.exists?
       end
 
       def hash
