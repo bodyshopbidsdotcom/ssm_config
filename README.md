@@ -1,9 +1,12 @@
 # SsmConfig
 
+⚠️ This gem no longer publishes to `https://rubygems.org` newer version greatern than 1.3.4 ⚠️
+
+⚠️ If you want to use newer version of gem then change your source to `https://rubygems.pkg.github.com/bodyshopbidsdotcom` in Gemfile ⚠️
 * ActiveRecord
   - Any file in ActiveRecord with model name `SsmConfigRecord` can be accessed by calling `SsmConfig.file_name`
   - All rows with the corresponding file name will be parsed into a hash
-* `config` directory 
+* `config` directory
   - If file is not found in `SsmConfigRecord` (or the ActiveRecord doesn't exist), `SsmConfig` looks in the `config` directory
   - Any YAML file in the directory with the corresponding file name will be parsed into a hash
 
@@ -31,7 +34,7 @@ To utilize ActiveRecords, create the following model:
 rails generate model SsmConfigRecord file:string:index accessor_keys:string value:text datatype:string
 ```
 
-The supported datatypes are `[string, integer, boolean, float, erb]`. The first character entered in the field `datatype` should be the character that corresponds to the first character of the datatype (so one of `[s, i, b, f, e]`). This field is not case-sensitive. The type `erb` will store the `erb` expression in the database, and evaluate it on queries. 
+The supported datatypes are `[string, integer, boolean, float, erb]`. The first character entered in the field `datatype` should be the character that corresponds to the first character of the datatype (so one of `[s, i, b, f, e]`). This field is not case-sensitive. The type `erb` will store the `erb` expression in the database, and evaluate it on queries.
 
 Booleans should also be one of `[t, f]`, corresponding to `true` and `false`. Similarly, this is not case-sensitive and only the first character of the value entered (given the datatype is a boolean) will be checked.
 
