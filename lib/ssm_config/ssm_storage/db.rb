@@ -11,7 +11,7 @@ module SsmConfig
       def table_exists?
         return active_record_model_exists? if db_connected? && active_record_exists? && constant_exists?
         false
-      rescue ActiveRecord::NoDatabaseError, Mysql2::Error::ConnectionError
+      rescue ActiveRecord::NoDatabaseError, Mysql2::Error::ConnectionError, ActiveRecord::ConnectionNotEstablished
         return false
       end
 
@@ -36,7 +36,7 @@ module SsmConfig
       end
 
       def constant_exists?
-        Object.const_defined? ACTIVE_RECORD_MODEL
+        !ACTIVE_RECORD_MODEL.safe_constantize.nil?
       end
 
       def convert_boolean(value)
