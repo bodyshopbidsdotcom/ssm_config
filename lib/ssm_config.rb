@@ -6,7 +6,7 @@ require 'ssm_config/migration_helper.rb'
 require 'active_support/all'
 
 module SsmConfig
-  VERSION = '1.3.6'.freeze
+  VERSION = '1.4.0'.freeze
   REFRESH_TIME = (30.minutes).freeze
 
   class << self

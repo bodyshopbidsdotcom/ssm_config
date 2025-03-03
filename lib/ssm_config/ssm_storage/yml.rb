@@ -11,7 +11,11 @@ module SsmConfig
       end
 
       def hash
-        yaml_loaded = YAML.load(ERB.new(File.read((file_path).to_s)).result)
+        yaml_loaded = if Psych::VERSION > '4.0'
+          YAML.safe_load(ERB.new(File.read((file_path).to_s)).result, aliases: true)
+        else
+          YAML.load(ERB.new(File.read((file_path).to_s)).result)
+        end
         (yaml_loaded[Rails.env] || yaml_loaded['any']).try(:with_indifferent_access)
       end
 
