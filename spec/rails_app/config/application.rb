@@ -1,4 +1,3 @@
-require 'active_record/railtie'
 require 'rails/all'
 
 module RailsApp
