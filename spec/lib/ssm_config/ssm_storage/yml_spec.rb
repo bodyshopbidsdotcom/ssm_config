@@ -17,14 +17,14 @@ RSpec.describe 'SsmStorage::Yml' do
 
     context "when YAML file doesn't exist" do
       it 'raises NoMethodError' do
-        expect { SsmConfig.nonexisting }.to raise_error(NoMethodError).with_message("undefined method `nonexisting' for SsmConfig:Module")
+        expect { SsmConfig.nonexisting }.to raise_error(NoMethodError).with_message(/undefined method .nonexisting. for (module )?SsmConfig/)
       end
     end
   end
 
   describe '#hash' do
     context 'when YAML file is blank' do
-      let(:no_method_error_message) { "undefined method `[]' for false:FalseClass" }
+      let(:no_method_error_message) { /undefined method .\[\]. for (false|nil)/ }
 
       it 'raises NoMethodError' do
         expect { yml_query_blank.hash }.to raise_error(NoMethodError).with_message(no_method_error_message)

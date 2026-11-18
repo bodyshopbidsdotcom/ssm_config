@@ -29,7 +29,11 @@ end
 
 logfile = Pathname.new(__FILE__).dirname.join('debug.log')
 logfile.unlink if logfile.file?
-ActiveRecord::Base.verbose_query_logs = true
+if ActiveRecord.respond_to?(:verbose_query_logs=)
+  ActiveRecord.verbose_query_logs = true
+else
+  ActiveRecord::Base.verbose_query_logs = true
+end
 
 ActiveRecord::Base.logger = Logger.new(logfile)
 

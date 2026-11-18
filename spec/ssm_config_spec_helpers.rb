@@ -4,8 +4,10 @@ module SsmConfigSpecHelpers
       ActiveRecord::Migrator.send(direction, migrations_paths, target_version)
     elsif rails_below?('6.0.0.rc1')
       ActiveRecord::MigrationContext.new(migrations_paths).send(direction, target_version)
-    else
+    elsif rails_below?('7.1.0')
       ActiveRecord::MigrationContext.new(migrations_paths, ActiveRecord::SchemaMigration).send(direction, target_version)
+    else
+      ActiveRecord::MigrationContext.new(migrations_paths).send(direction, target_version)
     end
   end
 
